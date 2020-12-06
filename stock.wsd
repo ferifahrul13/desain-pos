@@ -1,0 +1,24 @@
+@startuml pos
+title Stock
+scale 2
+left to right direction
+
+Class stock {
+    id
+    faktur <<fk>>
+    product_id <<fk>>
+    date
+    no_batch
+    expire_date
+    sell_price
+    purchase_price
+    qty
+    discount
+    user_id <<fk>>
+    supplier_id <<fk>>
+    updated_by <<fk>>
+    created_at
+    updated_at
+}
+
+@enduml

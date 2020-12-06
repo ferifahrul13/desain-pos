@@ -1,0 +1,37 @@
+@startuml pos
+title Pembelian
+scale 2 
+left to right direction
+
+purchase_headers <|-- purchase_details
+
+' pembelian
+Class purchase_headers {
+    id
+    invoice
+    faktur
+    date
+    status
+    storage_code
+    discount
+    user_id <<fk>>
+    supplier <<fk>>
+    updated_by <<fk>>
+    created_at
+    updated_at
+}
+
+Class purchase_details {
+    id
+    product_id <<fk>>
+    purchase_header_id <<fk>>
+    qty
+    purchase_price
+    sell_price
+    expire_date
+    name_batch
+    discount
+    created_at
+    updated_at
+}
+@enduml
