@@ -1,0 +1,170 @@
+@startuml produk_unit
+title product dan units
+left to right direction
+scale 2
+
+' purchase_headers <|-- purchase_details
+' purchase_orders <|-- purchase_order_details
+' products <|-- product_prices
+' products <|-- product_price_multis
+' purchase_headers <|-- stocks
+products <|-- units
+
+Class products {
+
+    id
+    barcode
+    name_product
+    image_product
+    min_qty
+    restock_level
+    category_id <<fk>>
+    supplier_id <<fk>>
+    rack_id <<fk>>
+    unit_id <<fk>>
+    status
+    user_id <<fk>>
+    created_at
+    updated_at
+}
+
+Class units {
+    id
+    nama_unit
+    created_at
+    updated_at
+}
+
+' Class product_prices {
+'     id
+'     purchase_price
+'     sell_price
+'     product_id <<fk>>
+'     user_id <<fk>>
+'     created_at
+'     updated_at
+' }
+
+' Class product_price_multis {
+'     id
+'     qty
+'     sell_price
+'     product_id <<fk>>
+'     unit_id <<fk>>
+'     user_id <<fk>>
+'     status
+'     created_at
+'     updated_at
+' }
+' pembelian
+' Class purchase_headers {
+'     id
+'     invoice
+'     faktur
+'     date
+'     status
+'     storage_code
+'     discount
+'     user_id <<fk>>
+'     supplier <<fk>>
+'     updated_by <<fk>>
+'     created_at
+'     updated_at
+' }
+
+' Class purchase_details {
+'     id
+'     product_id <<fk>>
+'     purchase_header_id <<fk>>
+'     qty
+'     purchase_price
+'     sell_price
+'     expire_date
+'     name_batch
+'     discount
+'     created_at
+'     updated_at
+' }
+
+' ' pemesanan
+' Class purchase_orders {
+'     id
+'     po_number
+'     date
+'     note
+'     status
+'     user_id <<fk>>
+'     supplier_id <<fk>>
+'     updated_by <<fk>>
+'     created_at
+'     updated_at
+' }
+
+' Class purchase_order_details {
+'     id
+'     product_id <<fk>>
+'     purchase_order_id <<fk>>
+'     qty
+'     purchase_price
+'     discount
+'     created_at
+'     updated_at
+
+' }
+' ' stock
+
+
+' Class stocks {
+'     id
+'     faktur <<fk>>
+'     product_id <<fk>>
+'     date
+'     no_batch
+'     expire_date
+'     sell_price
+'     purchase_price
+'     qty
+'     discount
+'     user_id <<fk>>
+'     supplier_id <<fk>>
+'     updated_by <<fk>>
+'     created_at
+'     updated_at
+' }
+
+' ' keuangan
+
+' Class hutang {
+'     id
+'     faktur <<fk>>
+'     date
+'     tempo
+'     jatuh_tempo
+'     tagihan_awal
+'     telah_dibayar
+'     sisa 
+'     status
+'     supplier_id <<fk>>
+'     user_id <<fk>>
+'     created_at
+'     updated_at
+' }
+
+' Class piutang {
+'     id
+'     faktur
+'     date
+'     tempo
+'     jatuh_tempo
+'     tagihan_awal
+'     telah_dibayar
+'     sisa
+'     status
+'     customer_id <<fk>>
+'     user_id <<fk>>
+'     created_at
+'     updated_at
+' }
+
+@enduml
+
